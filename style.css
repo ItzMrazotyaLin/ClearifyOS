@@ -1,35 +1,44 @@
-@font-face {
-    font-family: 'Google Sans';
-    src: url('/fonts/GoogleSans-Regular.woff2') format('woff2');
-    font-weight: 400;
-}
-@font-face {
-    font-family: 'Google Sans';
-    src: url('/fonts/GoogleSans-Medium.woff2') format('woff2');
-    font-weight: 500;
-}
-@font-face {
-    font-family: 'Google Sans';
-    src: url('/fonts/GoogleSans-Bold.woff2') format('woff2');
-    font-weight: 700;
+:root {
+    --bg-page: #FFFFFF;
+    --bg-surface: #F2F2F2;
+    --text-primary: #000000;
+    --text-secondary: #666666;
+    
+    --accent: #0078D7;
+    --accent-pressed: #005A9E;
+    
+    --border-color: #CCCCCC;
+    --border-hover: #000000;
+    
+    --btn-bg: #CCCCCC;
+    --btn-text: #000000;
+    --btn-active-bg: #999999;
+    --btn-active-text: #000000;
+
+    --md-sys-color-on-surface-variant: var(--text-secondary);
+    --md-sys-color-surface-variant: var(--bg-surface);
+    --md-sys-color-on-background: var(--text-primary);
+    --md-sys-color-primary: var(--accent);
+    --md-sys-shape-corner-extra-large: 0px;
+    --md-sys-shape-corner-large: 0px;
+    --md-sys-shape-corner-full: 0px;
 }
 
-:root {
-    --md-sys-color-background: #FDFBFF;
-    --md-sys-color-on-background: #1A1C1E;
-    --md-sys-color-surface: #FDFBFF;
-    --md-sys-color-surface-variant: #E1E2E8;
-    --md-sys-color-on-surface-variant: #44474E;
-    --md-sys-color-primary: #0061A4;
-    --md-sys-color-on-primary: #FFFFFF;
-    --md-sys-color-primary-container: #D1E4FF;
-    --md-sys-color-on-primary-container: #001D36;
-    --md-sys-color-error-container: #FFDAD6;
-    --md-sys-color-on-error-container: #410002;
-    
-    --md-sys-shape-corner-extra-large: 28px;
-    --md-sys-shape-corner-large: 16px;
-    --md-sys-shape-corner-full: 100px;
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-page: #000000;
+        --bg-surface: #1F1F1F;
+        --text-primary: #FFFFFF;
+        --text-secondary: #CCCCCC;
+        
+        --border-color: #333333;
+        --border-hover: #FFFFFF;
+        
+        --btn-bg: #333333;
+        --btn-text: #FFFFFF;
+        --btn-active-bg: #666666;
+        --btn-active-text: #FFFFFF;
+    }
 }
 
 * {
@@ -39,99 +48,141 @@
 }
 
 body {
-    font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    background-color: var(--md-sys-color-background);
-    color: var(--md-sys-color-on-background);
+    font-family: "Segoe UI", "Segoe WP", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Навигация (Top App Bar) */
+h1, h2, h3, h4, h5, h6, .card-title, .logo {
+    font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    font-weight: 300;
+}
+
+::-webkit-scrollbar { width: 14px; height: 14px; }
+::-webkit-scrollbar-track { background: var(--bg-page); }
+::-webkit-scrollbar-thumb { 
+    background: var(--btn-bg); 
+    border: 3px solid var(--bg-page); 
+}
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+::selection {
+    background-color: var(--accent);
+    color: #FFFFFF;
+}
+
 header {
-    background-color: var(--md-sys-color-surface);
-    padding: 20px 24px;
+    background-color: var(--bg-page);
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    height: 60px;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--md-sys-color-primary);
+    font-size: 20px;
+    color: var(--text-primary);
     text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+nav {
+    display: flex;
+    height: 100%;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--md-sys-color-on-surface-variant);
-    font-weight: 500;
+    color: var(--text-primary);
+    font-weight: 400;
+    font-size: 15px;
     margin-left: 24px;
-    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid transparent;
 }
 
-nav a:hover, nav a.active {
-    color: var(--md-sys-color-primary);
+nav a:hover {
+    color: var(--text-secondary);
 }
 
-/* Контейнер */
+nav a.active {
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 32px 24px;
 }
 
-/* Кнопки MD3 */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 24px;
-    border-radius: var(--md-sys-shape-corner-full);
-    font-weight: 500;
+    padding: 6px 24px;
+    min-width: 120px;
+    font-family: "Segoe UI", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
     text-decoration: none;
-    transition: background-color 0.2s, box-shadow 0.2s;
-    border: none;
+    border: 2px solid transparent;
     cursor: pointer;
-    font-size: 14px;
-}
-
-.btn-primary {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-}
-
-.btn-primary:hover {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    opacity: 0.9;
+    transition: transform 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);
 }
 
 .btn-tonal {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
 }
 
 .btn-tonal:hover {
-    background-color: #c0d8f8;
+    border: 2px solid var(--border-hover);
 }
 
-/* Слайдер */
+.btn-tonal:active {
+    background-color: var(--btn-active-bg);
+    color: var(--btn-active-text);
+    border-color: transparent;
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    border: 2px solid var(--border-hover); 
+}
+
+.btn-primary:active {
+    background-color: var(--accent-pressed);
+    border-color: transparent;
+    transform: scale(0.98);
+}
+
 .slider-container {
     position: relative;
     width: 100%;
     max-width: 900px;
     margin: 0 auto 48px;
-    border-radius: var(--md-sys-shape-corner-extra-large);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     overflow: hidden;
-    background: var(--md-sys-color-surface-variant);
+    background: var(--bg-surface);
 }
 
 .slider-wrapper {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s ease-in-out;
 }
 
 .slide {
@@ -148,14 +199,13 @@ main {
 
 .slide-caption {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    padding: 40px 24px 24px;
-    font-size: 18px;
-    font-weight: 500;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #FFFFFF;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    font-weight: 300;
 }
 
 .slider-controls {
@@ -165,7 +215,7 @@ main {
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
-    padding: 0 16px;
+    padding: 0;
     pointer-events: none;
 }
 
@@ -173,20 +223,24 @@ main {
     pointer-events: auto;
     width: 48px;
     height: 48px;
-    border-radius: 50%;
-    background: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    border: none;
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #FFFFFF;
+    border: 2px solid transparent;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-size: 18px;
+    transition: transform 0.1s;
 }
 
-/* Сетка сборок */
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #FFFFFF;
+}
+
+.slider-btn:active {
+    transform: scale(0.95);
+}
+
 .builds-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -194,16 +248,15 @@ main {
 }
 
 .card {
-    background-color: var(--md-sys-color-surface);
-    border: 1px solid var(--md-sys-color-surface-variant);
-    border-radius: var(--md-sys-shape-corner-extra-large);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: outline 0s, transform 0.1s;
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.card:active {
+    transform: scale(0.98);
 }
 
 .card img {
@@ -217,30 +270,29 @@ main {
 }
 
 .card-title {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 8px;
-    color: var(--md-sys-color-on-background);
+    color: var(--text-primary);
 }
 
-/* Страница конкретной сборки */
 .build-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 40px;
 }
 
 .build-image {
     width: 100%;
     max-width: 800px;
-    border-radius: var(--md-sys-shape-corner-extra-large);
-    margin: 0 auto 32px;
+    border-radius: 0;
+    margin: 0 0 32px 0;
     display: block;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
 }
 
 .section-title {
-    font-size: 22px;
+    font-size: 24px;
     margin: 32px 0 16px;
-    color: var(--md-sys-color-primary);
+    color: var(--text-primary);
 }
 
 .chip-group {
@@ -250,34 +302,52 @@ main {
 }
 
 .chip {
-    background: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-on-surface-variant);
+    background: transparent;
+    color: var(--text-primary);
     padding: 6px 16px;
-    border-radius: 8px;
+    border-radius: 0;
     font-size: 14px;
-    font-weight: 500;
+    border: 1px solid var(--border-color);
+}
+
+.notice-box {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    padding: 16px 20px;
+    border-radius: 0;
+    margin: 24px 0;
+    font-weight: 400;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent);
 }
 
 .warning-box {
-    background: var(--md-sys-color-error-container);
-    color: var(--md-sys-color-on-error-container);
-    padding: 20px;
-    border-radius: var(--md-sys-shape-corner-large);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    padding: 16px 20px;
+    border-radius: 0;
     margin: 24px 0;
-    font-weight: 500;
+    font-weight: 400;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid #D83B01;
 }
 
 .disclaimer {
     font-size: 13px;
-    color: var(--md-sys-color-on-surface-variant);
+    color: var(--text-secondary);
     margin-top: 48px;
     padding-top: 24px;
-    border-top: 1px solid var(--md-sys-color-surface-variant);
+    border-top: 1px solid var(--border-color);
 }
 
 .download-section {
     margin-top: 40px;
     display: flex;
     gap: 16px;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+*:focus-visible {
+    outline: 2px dashed var(--text-primary);
+    outline-offset: 2px;
 }

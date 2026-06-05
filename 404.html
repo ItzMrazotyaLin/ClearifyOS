@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка 404 — Страница не найдена</title>
+    <style>
+        body {
+            background-color: #0078D7;
+            color: #FFFFFF;
+            font-family: "Segoe UI Light", "Segoe UI", "Segoe WP", -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            cursor: default;
+            user-select: none;
+        }
+
+        .bsod-container {
+            max-width: 1000px;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .emoticon {
+            font-size: 140px;
+            line-height: 1;
+            margin-bottom: 24px;
+            font-family: "Segoe UI", sans-serif;
+            font-weight: 300;
+        }
+
+        .message {
+            font-size: 28px;
+            margin-bottom: 40px;
+            line-height: 1.3;
+        }
+
+        .progress {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+
+        .details {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            font-family: "Segoe UI", sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .qr-code {
+            width: 90px;
+            height: 90px;
+            background-color: #FFF;
+            padding: 6px;
+            background-image: 
+                linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), 
+                linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+            background-size: 16px 16px;
+            background-position: 0 0, 8px 8px;
+            border: 4px solid #FFF;
+        }
+
+        .support-text a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .support-text a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .bsod-container { padding: 24px; }
+            .emoticon { font-size: 100px; }
+            .message { font-size: 22px; }
+            .progress { font-size: 20px; }
+            .details { flex-direction: column; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bsod-container">
+        <div class="emoticon">:(</div>
+        <div class="message">
+            На этом сайте возникла проблема, и нужную страницу найти не удалось.<br>
+            Мы лишь собираем некоторые сведения об ошибке, а затем вы будете<br>перенаправлены на главную.
+        </div>
+        
+        <div class="progress"><span id="percent">0</span>% завершено</div>
+        
+        <div class="details">
+            <div class="support-text">
+                Дополнительные сведения об этой проблеме и возможных путях ее решения см. на сайте<br>
+                <a href="https://clearifyos.netlify.app">https://clearifyos.netlify.app/</a><br><br>
+                При обращении в службу поддержки назовите этот код:<br>
+                HTTP_ERROR_404_PAGE_NOT_FOUND
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const percentElement = document.getElementById('percent');
+        let currentPercent = 0;
+
+        const updateProgress = () => {
+            currentPercent += Math.floor(Math.random() * 15) + 10;
+            
+            if (currentPercent >= 100) {
+                currentPercent = 100;
+                percentElement.innerText = currentPercent;
+                
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 500);
+                return;
+            }
+
+            percentElement.innerText = currentPercent;
+            
+            setTimeout(updateProgress, Math.random() * 800 + 400);
+        };
+
+        setTimeout(updateProgress, 1000);
+    </script>
+
+</body>
+</html>
