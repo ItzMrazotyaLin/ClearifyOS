@@ -310,6 +310,10 @@ main {
     border: 1px solid var(--border-color);
 }
 
+.chip a{
+    color: var(--text-primary)
+}
+
 .notice-box {
     background: var(--bg-surface);
     color: var(--text-primary);
