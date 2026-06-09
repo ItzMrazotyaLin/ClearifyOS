@@ -6,6 +6,8 @@
     
     --accent: #0078D7;
     --accent-pressed: #005A9E;
+    --accent-removed: rgb(168, 33, 33);
+    --accent-added: green;
     
     --border-color: #CCCCCC;
     --border-hover: #000000;
@@ -301,16 +303,37 @@ main {
     gap: 8px;
 }
 
-.chip {
+.changed-chip {
     background: transparent;
     color: var(--text-primary);
     padding: 6px 16px;
     border-radius: 0;
     font-size: 14px;
     border: 1px solid var(--border-color);
+    border-left: 2px solid var(--accent);
 }
 
-.chip a{
+.removed-chip {
+    background: transparent;
+    color: var(--text-primary);
+    padding: 6px 16px;
+    border-radius: 0;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    border-left: 2px solid var(--accent-removed);
+}
+
+.added-chip {
+    background: transparent;
+    color: var(--text-primary);
+    padding: 6px 16px;
+    border-radius: 0;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    border-left: 2px solid var(--accent-added);
+}
+
+.removed-chip a{
     color: var(--text-primary)
 }
 
@@ -336,12 +359,27 @@ main {
     border-left: 4px solid #D83B01;
 }
 
-.disclaimer {
+.copyright {
     font-size: 13px;
     color: var(--text-secondary);
     margin-top: 48px;
     padding-top: 24px;
     border-top: 1px solid var(--border-color);
+}
+
+.install-warning {
+    margin-top: 24px;
+    /* background-color: var(--md-sys-color-surface-variant); */
+    border: 2px solid rgb(201, 0, 0);
+    padding: 10px;
+    font-family: 'Segoe UI Light', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+}
+
+.install-warning ul {
+    margin-left: 20px;
+    font-size: 18px;
+    padding: 5px;
 }
 
 .download-section {

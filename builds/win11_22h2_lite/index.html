@@ -27,32 +27,49 @@
 
         <h2 class="section-title">Выпиленный софт и компоненты:</h2>
         <div class="chip-group">
-            <span class="chip">Всё, что и в <a href="/builds/win11_25h2">25H2</a></span>
-            <span class="chip">Microsoft Store</span>
-            <span class="chip">Windows Defender</span>
-            <span class="chip">Microsoft Edge*</span>
-            <span class="chip">UWP Калькулятор (заменён на <a href="https://win7games.com/#calc">Classic Calculator</a>)</span>
-            <span class="chip">UWP Фотографии (заменены на Windows Photo Viewer)</span>
-            <span class="chip">Инсайдерский центр Windows</span>
-            <span class="chip">Экранный диктор</span>
-            <span class="chip">Редактор символов</span>
-            <span class="chip">Skype ORTC</span>
-            <span class="chip">Новая версия контекстного меню (заменено на стандартное)**</span>
-            <span class="chip">Смешанная реальность</span>
-            <span class="chip">Облачный рабочий стол (поддержка Windows 365)</span>
-            <span class="chip">Сервер удалённого рабочего стола (RDP)</span>
-            <span class="chip">Карты Windows</span>
-            <span class="chip">Кошелёк Windows</span>
+            <span class="removed-chip">Всё, что и в <a href="/builds/win11_25h2">25H2</a></span>
+            <span class="removed-chip">Microsoft Store</span>
+            <span class="removed-chip">Windows Defender</span>
+            <span class="removed-chip">Microsoft Edge*</span>
+            <span class="removed-chip">UWP Калькулятор (заменён на <a href="https://win7games.com/#calc">Classic Calculator</a>)</span>
+            <span class="removed-chip">UWP Фотографии (заменены на Windows Photo Viewer)</span>
+            <span class="removed-chip">Инсайдерский центр Windows</span>
+            <span class="removed-chip">Экранный диктор</span>
+            <span class="removed-chip">Редактор символов</span>
+            <span class="removed-chip">Skype ORTC</span>
+            <span class="removed-chip">Новая версия контекстного меню (заменено на стандартное)**</span>
+            <span class="removed-chip">Смешанная реальность</span>
+            <span class="removed-chip">Облачный рабочий стол (поддержка Windows 365)</span>
+            <span class="removed-chip">Сервер удалённого рабочего стола (RDP)</span>
+            <span class="removed-chip">Карты Windows</span>
+            <span class="removed-chip">Кошелёк Windows</span>
         </div>
         <p style="color: var(--md-sys-color-on-surface-variant);">* - может быть восстановлен при обновлении</p>
         <p style="color: var(--md-sys-color-on-surface-variant);">** - для применения перезагрузите ПК после установки сборки</p>
 
-        <h2 class="section-title">Важное предупреждение:</h2>
-        <div class="notice-box">
-            ⚠️ <strong>Внимание:</strong> На рабочем столе лежит папка ClearifyOS. В ней находятся установщики Chrome и Firefox, оригинальные обои (если те, что в сборке не нравятся), установщик VLC Media Player и скрипт активации через slmgr. Если вам ничего не нужно из этой папки, просто удалите её и продолжите пользоваться сборкой.
+        <h2 class="section-title">Изменено/Добавлено:</h2>
+        <div class="chip-group">
+            <span class="changed-chip">Обои стандартных тем</span>
+            <span class="added-chip">Оффлайн установщик Firefox 151</span>
+            <span class="added-chip">Оффлайн установщик VLC Media Player 3.0.23</span>
+            <span class="added-chip">Онлайн установщик Chrome</span>
+            <span class="added-chip">Скрипт активации</span>
+            <span class="added-chip">Стоковые обои Windows 10 и 11</span>
         </div>
+
         <div class="warning-box">
             ⚠️ <strong>Предупреждение:</strong> В этой сборке полностью удален Windows Defender (Защитник Windows), Microsoft Store и Microsoft Edge. Ответственность за сохранение системы вы берёте на себя!
+        </div>
+
+        <div class="install-warning">
+            <h2>Важное предупреждение:</h2>
+            Перед установкой сборки <b>НАСТОЯТЕЛЬНО РЕКОМЕНДУЕТСЯ</b> следовать советам:
+            <ul>
+                <li>Подготовьте <b>драйверы</b>: Заранее скачайте сетевые драйверы (LAN/Wi-Fi) на флешку. Кастомные сборки могут не содержать драйверов для вашего сетевого адаптера. Без них вы <b>останетесь без интернета после установки!</b></li>
+                <li>Ответственность автора: Данная модификация предоставляется «как есть». Автор сборки <b>не несет ответственности</b> за возможные сбои. Решать технические проблемы вам придется <b>самостоятельно.</b></li>
+                <li>Рекомендация: Настоятельно рекомендуется выполнять <b>чистую установку</b> системы с <b>полным</b> форматированием системного диска или помещением старых файлов в папку Windows.old. Это гарантирует стабильную и быструю работу.</li>
+            </ul>
+            Желаю вам успешной установки, безупречной работы системы и максимальной скорости во всех играх и рабочих приложениях!
         </div>
 
         <div class="download-section">
@@ -60,8 +77,8 @@
             <a href="https://pixeldrain.com/u/uRyUaLNR" class="btn btn-tonal">Скачать с PixelDrain</a>
         </div>
 
-        <div class="disclaimer">
-            <strong>Отказ от ответственности:</strong> Сборка предоставляется "как есть". Автор (ClearifyOS) не несет ответственности за потерю данных, сбои в работе оборудования или несовместимость специфического программного обеспечения. Все модификации производились с использованием NTLite исключительно в целях оптимизации личного использования. Используя данную сборку, вы берете все риски на себя.
+        <div class="copyright">
+            © ItzMrazotyaLin. 2026
         </div>
     </main>
 
